@@ -1,8 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\grid\GridView;
+use yii\data\ActiveDataProvider;
+use yii\widgets\ListView;
+ 
 
-$this->title = 'My Yii Application';
+$this->title = 'NSS EVENT';
 ?>
 <div class="site-index">
 
@@ -11,15 +15,24 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                
-
-                
-                
-            </div>
-            
+           <?php
+           		/*echo GridView::widget([
+           			'dataProvider'=>$events,
+                    'columns'=>[
+                    		['class'=> 'yii\grid\SerialColumn'],
+                    		'event_name',
+                    		'event_description',
+                    		'event_date',
+                    		'registration_date',
+                    		'venue'
+                    		 ]
+           		])*/
+           		echo ListView::widget([
+    			'dataProvider' => $events,
+    			'itemView' => '_post',
+				]);
+           ?>
+                   
             
         </div>
 
