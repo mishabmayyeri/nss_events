@@ -69,9 +69,6 @@ class SignupForm extends Model
         $user->generateEmailVerificationToken();
         $user->save();
         $students = new Students();
-        // echo '<pre>';
-        //     print_r($this);
-        //     die();
         $students->student_name = $this->student_name;
         $students->guardian_name = $this->guardian_name;
         $students->gender = $this->gender;
@@ -86,15 +83,8 @@ class SignupForm extends Model
         $students->blood_group = $this->blood_group;
         $students->aadhar_number = $this->aadhar_number;
         $students->email = $this->email;
-        if ($students->save()) {
-             # code...
-         } 
-         else {
-            echo '<pre>';
-            print_r($students->getErrors());
-            print_r($this);
-            die();
-         }
+        $students->save();
+        
 
         return $this->sendEmail($user);
     }

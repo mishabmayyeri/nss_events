@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'gender')->radioList( [ 0 => 'Male', 1 => 'Female'] ) ?>
+                <?= $form->field($model, 'gender')->radioList( [ 1 => 'Male', 2 => 'Female'] ) ?>
 
                 <?= $form->field($model, 'date_of_birth') ?>
 
