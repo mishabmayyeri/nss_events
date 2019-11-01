@@ -6,6 +6,8 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use dosamigos\datepicker\DatePicker;
+
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,7 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'gender')->radioList( [ 1 => 'Male', 2 => 'Female'] ) ?>
 
-                <?= $form->field($model, 'date_of_birth') ?>
+                <?= $form->field($model, 'date_of_birth') ->widget(
+                    DatePicker::className(), [
+                        'inline'=>false,
+                        'clientOptions'=>[
+                            'autoclose'=>true,
+                            'format'=>'dd-mm-yyyy'
+                        ]
+                    ]
+
+                ) ?>
 
                 <?= $form->field($model, 'address')->textarea(['rows' => '6']) ?>
 
