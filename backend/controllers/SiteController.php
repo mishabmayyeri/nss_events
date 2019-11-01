@@ -7,6 +7,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use frontend\models\SignupForm;
+use yii\data\ActiveDataProvider;
+use backend\models\Events;
 
 /**
  * Site controller
@@ -61,7 +63,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+       
+        $events=new ActiveDataProvider(['query'=>Events::find(),
+            'pagination'=>['pageSize'=>10,]]);
+        return $this->render('index',['events'=>$events]);
     }
 
     /**
@@ -111,4 +116,7 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+    
+    
 }
