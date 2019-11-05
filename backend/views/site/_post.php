@@ -136,10 +136,21 @@ use yii\helpers\Url;
 
 
 
-		     <?php 
-		   }
+		     <?php } if($registration_index==3) {?>
+      
 
-		}?>
+      Event Description::   <?= HtmlPurifier::process($model->event_description) ?>  <br>  
+      Venue::   <?= HtmlPurifier::process($model->venue) ?>     <br>
+      Event Date::   <?= HtmlPurifier::process($model->event_date) ?>     <br>
+      Registration Date::   <?= HtmlPurifier::process($model->registration_date) ?>     <br>
+      Work Statement::   <?= HtmlPurifier::process($review->work_statement) ?>     <br>
+      Number of hours::   <?= HtmlPurifier::process($review->no_of_hours) ?>     <br>
+      <h2>Approved by Coordinator <h2>
+        <br><br><br>
+      
+	<?php	}
+
+  }?>
     
 
 

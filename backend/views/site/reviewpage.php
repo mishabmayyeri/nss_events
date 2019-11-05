@@ -8,7 +8,7 @@ use yii\widgets\ListView;
 
 $this->title = 'NSS EVENT';
 ?>
-<div class="site-index">
+<div class="site-reviewpage">
 
     <div class="jumbotron">
         <h1>NSS Events</h1>
@@ -16,11 +16,11 @@ $this->title = 'NSS EVENT';
 
     <div class="body-content">
            <?php
-           		
            		echo ListView::widget([
-    			'dataProvider' => $events,
-    			'itemView' => '_post',
-				]);
+                'dataProvider' => $reviews,
+                'itemView' => 'review_post',
+                ]);
+           		
            ?>
                    
             

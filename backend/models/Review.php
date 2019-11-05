@@ -48,7 +48,7 @@ class Review extends \yii\db\ActiveRecord
             'event_id' => 'Event ID',
             'student_id' => 'Student ID',
             'registration_index' => 'Registration Index',
-            'no_of_hours' => 'No Of Hours',
+            'no_of_hours' => 'No of hours',
             'work_statement' => 'Work Statement',
         ];
     }

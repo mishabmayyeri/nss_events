@@ -34,7 +34,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error', 'approve','register-student','entry-confirm','undo-request'],
+                        'actions' => ['login','review', 'error', 'approve','register-student','entry-confirm','undo-request','approve-request'],
                         'allow' => true,
                     ],
                     [
@@ -161,6 +161,14 @@ class SiteController extends Controller
         }
     }
 
+        
+    public function actionReview(){
+    
+       $reviews=new ActiveDataProvider(['query'=>Review::find()
+         ->where(['registration_index' => 2]),
+         'pagination'=>['pageSize'=>10,]]);
+        return $this->render('/site/reviewpage',['reviews'=>$reviews]); 
+       }
     
     
     public function actionUndoRequest($event_id,$student_id){
@@ -173,7 +181,16 @@ class SiteController extends Controller
 
     
     }
+   
+      public function actionApproveRequest($event_id,$student_id){
+             Yii::$app->db->createCommand()
+             ->update('review', ['registration_index'=>3],['event_id' => $event_id, 'student_id' => $student_id] )
+             ->execute();
+             Yii::$app->session->setFlash('success',"Approval confirmed");
+             return $this->redirect(['/site/review']);
 
+    
+    }
 
     public function actionLogin()
     {
