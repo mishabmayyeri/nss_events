@@ -3,6 +3,8 @@ namespace backend\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\db\Connection;
+
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -25,7 +27,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error', 'register'],
+                        'actions' => ['login', 'error', 'register','register-student'],
                         'allow' => true,
                     ],
                     [
@@ -74,6 +76,16 @@ class SiteController extends Controller
      *
      * @return string
      */
+
+    public function actionRegisterStudent($event_id) {
+        // update table events set register_index=registered
+        // where event id=$event_id
+         $connection=createCommand('UPDATE events SET registration_index="registered" WHERE event_id=$event_id');
+        $connection->execute();
+        /// 
+        Yii::$app->session->setFlash('success', 'Registration success');
+        return $this->redirect(['/site/index']);
+    }
 
     public function actionRegister() 
     {    
