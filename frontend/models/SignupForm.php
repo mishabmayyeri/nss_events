@@ -26,7 +26,7 @@ class SignupForm extends Model
     public $mobile;
     public $blood_group;
     public $aadhar_number;
-
+    public $coordinator_id;
     /**
      * {@inheritdoc}
      */
@@ -34,7 +34,7 @@ class SignupForm extends Model
     {
         return [
             ['username', 'trim'],
-            [['username','student_name','guardian_name','gender','date_of_birth','address','street','city','district','state','pin_code','email','mobile','blood_group','aadhar_number'],'required'],
+            [['username','student_name','guardian_name','gender','date_of_birth','address','street','city','district','state','pin_code','email','mobile','blood_group','aadhar_number','coordinator_id'],'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             [['username','student_name'],'string', 'min' => 2, 'max' => 255],
             ['date_of_birth','safe'],
@@ -82,6 +82,7 @@ class SignupForm extends Model
         $students->mobile = $this->mobile;
         $students->blood_group = $this->blood_group;
         $students->aadhar_number = $this->aadhar_number;
+        $students->coordinator_id=$this->coordinator_id;
         $students->email = $this->email;
         $students->save();
         

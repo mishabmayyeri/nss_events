@@ -60,6 +60,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'blood_group') ?>
 
                 <?= $form->field($model, 'aadhar_number') ?>                
+                
+                <?= $form->field($model, 'coordinator_id') ?>                
 
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
