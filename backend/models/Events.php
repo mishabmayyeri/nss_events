@@ -35,10 +35,15 @@ class Events extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
             [['event_name', 'event_description', 'venue', 'event_date', 'registration_date', 'coordinator_id'], 'required'],
             [['event_description', 'registration_index'], 'string'],
             [['event_date', 'registration_date'], 'safe'],
             [['event_image'],'file','extensions'=>'jpeg,jpg,png'],
+
+            [['event_name', 'event_description', 'venue', 'event_date', 'registration_date', 'registration_index', 'coordinator_id', 'event_image'], 'required'],
+            [['event_description', 'registration_index', 'event_image'], 'string'],
+            [['event_date', 'registration_date'], 'safe'],
             [['coordinator_id'], 'integer'],
             [['event_name', 'venue'], 'string', 'max' => 255],
         ];
@@ -57,10 +62,12 @@ class Events extends \yii\db\ActiveRecord
             'event_date' => 'Event Date',
             'registration_date' => 'Registration Date',
             'registration_index' => 'Registration Index',
-            'coordinator_id' => 'Coordinator ID',
+            'coordinator_id' => 'Coordinator ID', 
             // 'file'=>'Event Image',
             'event_image' => 'Upload Event Image',
 
+
+            
         ];
     }
 }

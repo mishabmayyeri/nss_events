@@ -4,7 +4,6 @@ namespace backend\models;
 
 use Yii;
 
-
 /**
  * This is the model class for table "review".
  *
@@ -53,7 +52,6 @@ class Review extends \yii\db\ActiveRecord
             'work_statement' => 'Work Statement',
         ];
     }
-
     public function getEvent()
     {
         return $this->hasOne(Events::className(), ['event_id' => 'event_id']);

@@ -39,10 +39,10 @@ class Students extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['student_name', 'guardian_name', 'gender', 'date_of_birth', 'address', 'street', 'city', 'district', 'state', 'pin_code', 'email', 'mobile', 'blood_group', 'aadhar_number'], 'required'],
+            [['student_name', 'guardian_name', 'gender', 'date_of_birth', 'address', 'street', 'city', 'district', 'state', 'pin_code', 'email', 'mobile', 'blood_group', 'aadhar_number','coordinator_id'], 'required'],
             [['gender', 'address'], 'string'],
             [['date_of_birth'], 'safe'],
-            [['pin_code', 'aadhar_number'], 'integer'],
+            [['pin_code', 'aadhar_number','coordinator_id'], 'integer'],
             [['student_name', 'guardian_name', 'email'], 'string', 'max' => 255],
             [['street', 'city', 'district', 'state'], 'string', 'max' => 100],
             [['mobile'], 'string', 'max' => 15],
@@ -71,6 +71,7 @@ class Students extends \yii\db\ActiveRecord
             'mobile' => 'Mobile',
             'blood_group' => 'Blood Group',
             'aadhar_number' => 'Aadhar Number',
+            'coordinator_id'=>'Coordinator ID',
         ];
     }
 }

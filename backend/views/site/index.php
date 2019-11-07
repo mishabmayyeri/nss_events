@@ -16,17 +16,7 @@ $this->title = 'NSS EVENT';
 
     <div class="body-content">
            <?php
-           		/*echo GridView::widget([
-           			'dataProvider'=>$events,
-                    'columns'=>[
-                    		['class'=> 'yii\grid\SerialColumn'],
-                    		'event_name',
-                    		'event_description',
-                    		'event_date',
-                    		'registration_date',
-                    		'venue'
-                    		 ]
-           		])*/
+           		
            		echo ListView::widget([
     			'dataProvider' => $events,
     			'itemView' => '_post',

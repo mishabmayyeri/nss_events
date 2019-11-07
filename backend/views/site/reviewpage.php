@@ -4,6 +4,7 @@
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 use yii\widgets\ListView;
+
 use backend\models\ReviewData; 
 use backend\models\Events; 
 use backend\models\Students; 
@@ -80,6 +81,18 @@ use dosamigos\datepicker\DatePicker;
              <div>
              <?php
              if($reviews!=null){
+ 
+
+$this->title = 'NSS EVENT';
+?>
+<div class="site-reviewpage">
+
+    <div class="jumbotron">
+        <h1>NSS Events</h1>
+    </div>
+
+    <div class="body-content">
+           <?php 
            		echo ListView::widget([
                 'dataProvider' => $reviews,
                 'itemView' => 'review_post',
@@ -89,8 +102,14 @@ use dosamigos\datepicker\DatePicker;
            ?>
              	
              </div>       
+
+           		
+           ?>
+                   
             
         </div>
 
     </div>
+</div>
+
 </div>

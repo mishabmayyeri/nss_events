@@ -41,6 +41,7 @@ use yii\helpers\Url;
            <?php if($review==null&&($coordinator_id==$model->coordinator_id)&&$todayDate<=$registrationDate){?>
 
 
+
      
  			<h2><?= Html::encode($model->event_name) ?></h2>
       
@@ -51,6 +52,15 @@ use yii\helpers\Url;
  			Registration Date::   <?= HtmlPurifier::process($model->registration_date) ?>     <br>
   		<?=Html::a(' Register', ['/site/register-student', 'event_id' => $model->event_id,'registration_index'=>$model->registration_index,'event_name'=>$model->event_name], 
   		['class'=>'btn btn-primary'])?>
+
+ 			<h2><?= Html::encode($model->event_name) ?></h2>
+ 			Event Description::   <?= HtmlPurifier::process($model->event_description) ?>  <br>  
+ 			Venue::   <?= HtmlPurifier::process($model->venue) ?>     <br>
+ 			Event Date::   <?= HtmlPurifier::process($model->event_date) ?>     <br>
+ 			Registration Date::   <?= HtmlPurifier::process($model->registration_date) ?>     <br>
+  			
+  			<?=Html::a(' Register', ['/site/register-student', 'event_id' => $model->event_id,'registration_index'=>$model->registration_index,'event_name'=>$model->event_name], 
+  			['class'=>'btn btn-primary'])?>
 
 			<?php } ?> 
 
@@ -159,4 +169,17 @@ use yii\helpers\Url;
 
 
 
+
  </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+

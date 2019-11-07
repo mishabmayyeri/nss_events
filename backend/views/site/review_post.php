@@ -18,7 +18,11 @@ $eventModel=Events::find()
 
 ?>
 
+<<<<<<< HEAD
 <br><br><br>
+=======
+
+>>>>>>> b2f49e5462648e6f62593a02bd7517bab6190a7a
 <div class="review_post">
 
 <style>
@@ -91,4 +95,8 @@ table {
 
   </table> 
   		
+<<<<<<< HEAD
  </div>
+=======
+ </div> 			
+>>>>>>> b2f49e5462648e6f62593a02bd7517bab6190a7a
