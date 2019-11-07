@@ -14,7 +14,7 @@ use Yii;
  * @property string $event_date
  * @property string $registration_date
  * @property string $registration_index
- * @property int $cordinator_id
+ * @property int $coordinator_id
  * @property string $event_image
  */
 class Events extends \yii\db\ActiveRecord
@@ -22,6 +22,8 @@ class Events extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public $file;
+
     public static function tableName()
     {
         return 'events';
@@ -33,10 +35,11 @@ class Events extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['event_name', 'event_description', 'venue', 'event_date', 'registration_date', 'registration_index', 'cordinator_id', 'event_image'], 'required'],
-            [['event_description', 'registration_index', 'event_image'], 'string'],
+            [['event_name', 'event_description', 'venue', 'event_date', 'registration_date', 'coordinator_id'], 'required'],
+            [['event_description', 'registration_index'], 'string'],
             [['event_date', 'registration_date'], 'safe'],
-            [['cordinator_id'], 'integer'],
+            [['event_image'],'file','extensions'=>'jpeg,jpg,png'],
+            [['coordinator_id'], 'integer'],
             [['event_name', 'venue'], 'string', 'max' => 255],
         ];
     }
@@ -54,8 +57,10 @@ class Events extends \yii\db\ActiveRecord
             'event_date' => 'Event Date',
             'registration_date' => 'Registration Date',
             'registration_index' => 'Registration Index',
-            'cordinator_id' => 'Cordinator ID',
-            'event_image' => 'Event Image',
+            'coordinator_id' => 'Coordinator ID',
+            // 'file'=>'Event Image',
+            'event_image' => 'Upload Event Image',
+
         ];
     }
 }

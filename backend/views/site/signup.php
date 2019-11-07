@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'inline'=>false,
                         'clientOptions'=>[
                             'autoclose'=>true,
-                            'format'=>'dd-mm-yyyy'
+                            'format'=>'yyyy-mm-dd'
                         ]
                     ]
 

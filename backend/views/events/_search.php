@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'registration_index') ?>
 
-    <?php // echo $form->field($model, 'cordinator_id') ?>
+    <?php // echo $form->field($model, 'coordinator_id') ?>
 
     <?php // echo $form->field($model, 'event_image') ?>
 

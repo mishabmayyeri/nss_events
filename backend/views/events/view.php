@@ -36,8 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'event_date',
             'registration_date',
             'registration_index',
-            'cordinator_id',
-            'event_image:ntext',
+            'coordinator_id',
+            'event_image',
         ],
     ]) ?>
 

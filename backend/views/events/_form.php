@@ -19,33 +19,33 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'venue')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'event_date')->textInput()->widget(
+    <?= $form->field($model, 'event_date')->widget(
                     DatePicker::className(), [
                         'inline'=>false,
                         'clientOptions'=>[
                             'autoclose'=>true,
-                            'format'=>'dd-mm-yyyy'
-                        ]
-                    ]
-
-                    ) ?>
-
-    <?= $form->field($model, 'registration_date')->textInput() ->widget(
-                    DatePicker::className(), [
-                        'inline'=>false,
-                        'clientOptions'=>[
-                            'autoclose'=>true,
-                            'format'=>'dd-mm-yyyy'
+                            'format'=>'yyyy-mm-dd'
                         ]
                     ]
 
                 ) ?>
 
-    <?= $form->field($model, 'registration_index')->dropDownList([ 'not_registered' => 'Not registered', 'registered' => 'Registered', 'approved' => 'Approved', 'not_approved' => 'Not approved', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'registration_date')->widget(
+                    DatePicker::className(), [
+                        'inline'=>false,
+                        'clientOptions'=>[
+                            'autoclose'=>true,
+                            'format'=>'yyyy-mm-dd'
+                        ]
+                    ]
 
-    <?= $form->field($model, 'cordinator_id')->textInput() ?>
+                ) ?>
 
-    <?= $form->field($model, 'event_image')->textarea(['rows' => 6]) ?>
+    <!-- <?= $form->field($model, 'registration_index')->dropDownList([ 'not_registered' => 'Not registered', 'registered' => 'Registered', 'approved' => 'Approved', 'not_approved' => 'Not approved', ], ['prompt' => '']) ?> -->
+
+    <?= $form->field($model, 'coordinator_id')->textInput() ?>
+
+    <!-- <?= $form->field($model, 'event_image')->fileinput() ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

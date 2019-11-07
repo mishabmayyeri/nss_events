@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Events;
+use backend\models\Review;
 
 /**
- * EventsSearch represents the model behind the search form of `backend\models\Events`.
+ * ReviewSearch represents the model behind the search form of `backend\models\Review`.
  */
-class EventsSearch extends Events
+class ReviewSearch extends Review
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class EventsSearch extends Events
     public function rules()
     {
         return [
-            [['event_id', 'coordinator_id'], 'integer'],
-            [['event_name', 'event_description', 'venue', 'event_date', 'registration_date', 'registration_index', 'event_image'], 'safe'],
+            [['id', 'coordinator_id', 'event_id', 'student_id', 'registration_index', 'no_of_hours'], 'integer'],
+            [['work_statement'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class EventsSearch extends Events
      */
     public function search($params)
     {
-        $query = Events::find();
+        $query = Review::find();
 
         // add conditions that should always apply here
 
@@ -58,17 +58,15 @@ class EventsSearch extends Events
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'event_id' => $this->event_id,
-            'event_date' => $this->event_date,
-            'registration_date' => $this->registration_date,
+            'id' => $this->id,
             'coordinator_id' => $this->coordinator_id,
+            'event_id' => $this->event_id,
+            'student_id' => $this->student_id,
+            'registration_index' => $this->registration_index,
+            'no_of_hours' => $this->no_of_hours,
         ]);
 
-        $query->andFilterWhere(['like', 'event_name', $this->event_name])
-            ->andFilterWhere(['like', 'event_description', $this->event_description])
-            ->andFilterWhere(['like', 'venue', $this->venue])
-            ->andFilterWhere(['like', 'registration_index', $this->registration_index])
-            ->andFilterWhere(['like', 'event_image', $this->event_image]);
+        $query->andFilterWhere(['like', 'work_statement', $this->work_statement]);
 
         return $dataProvider;
     }
